@@ -19,21 +19,22 @@ def predict():
     feature_list = request.form.to_dict()
     feature_list = list(feature_list.values())
     feature_list = list(map(int, feature_list))
-    final_features = np.array(feature_list).reshape(12, 1)
+    print('feature', feature_list)
+    final_features = np.array(feature_list).reshape(-1, 1)
 
-    print(final_features)
+    print('final', final_features)
 
-    prediction = model.predict(feature_list)
+    #prediction = model.predict(feature_list)
 
-    print(prediction)
+    # print(prediction)
 
-    output = int(prediction[0])
-    if output == 1:
-        text = "diseases iku"
-    else:
-        text = "disaese ila"
+    # output = int(prediction[0])
+    # if output == 1:
+    #     text = "diseases iku"
+    # else:
+    #     text = "disaese ila"
 
-    return render_template('result.html', prediction_text='Employee Income is {}'.format(text))
+    # return render_template('result.html', prediction_text='Employee Income is {}'.format(text))
 
 # def ValuePredictor(to_predict_list):
 #     to_predict = np.array(to_predict_list).reshape(1, 12)
