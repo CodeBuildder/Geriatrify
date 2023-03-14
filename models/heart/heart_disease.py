@@ -5,10 +5,9 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score
+import pickle
 
-import joblib
-
-df = pd.read_csv(r"C:\Users\Madhumitha\Desktop\Major Project\dataset\Heart_data\heart_failure.csv")
+df = pd.read_csv(r"C:\Users\Madhumitha\Desktop\MajorProject\dataset\Heart_data\heart_failure.csv")
 
 X=df.drop(['DEATH_EVENT'],axis=1)
 y=df['DEATH_EVENT']
@@ -26,4 +25,7 @@ print("---------------------")
 print(clf_report)
 print("_____________________")
 
-joblib.dump(model,r"C:\Users\Madhumitha\Desktop\Major Project\Model\Heart_API\heart_model.pkl")
+filename = r'C:\Users\Madhumitha\Desktop\MajorProject\Model\Heart_API\heart_model.pkl'
+pickle.dump(model, open(filename, 'wb'))
+
+# pickle.dump(model,r"C:\Users\Madhumitha\Desktop\Major Project\Model\Heart_API\heart_model.pkl")

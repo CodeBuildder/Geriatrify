@@ -19,7 +19,7 @@ def predict():
     feature_list = request.form.to_dict()
     feature_list = list(feature_list.values())
     feature_list = list(map(int, feature_list))
-    final_features = np.array(feature_list).reshape(1, 12)
+    final_features = np.array(feature_list).reshape(12, 1)
 
     print(final_features)
 
