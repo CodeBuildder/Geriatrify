@@ -9,13 +9,14 @@ app = Flask(__name__, template_folder='templates')
 @app.route("/")
 @app.route("/cancer")
 def cancer():
-    return render_template(r"C:\Users\Mahesh Sharma\Desktop\HealthApp\Indivisual_Deployment\Breast_Cancer API\cancer_model.pkl")
+    return render_template("cancer.html")
 
 
 def ValuePredictor(to_predict_list, size):
     to_predict = np.array(to_predict_list).reshape(1, size)
     if(size == 5):
-        loaded_model = joblib.load('cancer_model.pkl')
+        loaded_model = joblib.load(
+            'E:\External Projects\MajorProject\Cancer_API\cancer_model.pkl')
         result = loaded_model.predict(to_predict)
     return result[0]
 

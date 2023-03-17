@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import joblib
 
 df = pd.read_csv(
-    r"C:\Users\Madhumitha\Desktop\Majorrrrrr\Health-App\data\cancer.csv")
+    r"E:\External Projects\MajorProject\data\cancer.csv")
 df.drop(df.columns[[0, -1]], axis=1, inplace=True)
 # Split the features data and the target
 Xdata = df.drop(['diagnosis'], axis=1)
@@ -37,4 +37,4 @@ print(clf_report)
 print("_____________________")
 
 joblib.dump(
-    model, r"C:\Users\Madhumitha\Desktop\Majorrrrrr\Health-App\Cancer_API\cancer_model.pkl")
+    model, r"E:\External Projects\MajorProject\Cancer_API\cancer_model.pkl")
