@@ -1,6 +1,7 @@
 import streamlit as st
 import pickle
 import numpy as np
+import os
 
 if "visibility" not in st.session_state:
     st.session_state.visibility = "visible"
@@ -8,16 +9,20 @@ if "visibility" not in st.session_state:
 
 
 def load_model():
+    if not os.path.isfile('heart_model.pkl'):
+        raise FileNotFoundError("Pickle file not found.")
+
     with open('heart_model.pkl', 'rb') as file:
         model = pickle.load(file)
-        # print(data)
 
     return {"model": model}
 
 
-data = load_model()
-
-ml = data["model"]
+try:
+    data = load_model()
+    ml = data["model"]
+except Exception as e:
+    print(e)
 
 
 def show_predict_page():
@@ -25,8 +30,12 @@ def show_predict_page():
 
     st.write("""### We need some information to predict the your stupid health""")
 
-    age = st.slider('How old are you?', 0, 100, 50)
-
+    cp = st.selectbox(
+        "Chest Pain Type?",
+        ("Typical Angina", "Atypical Angina", "Non-Anginal Pain, Asymptomatic"),
+        label_visibility=st.session_state.visibility,
+        disabled=st.session_state.disabled,
+    )
     anaemia = st.radio(
         "Do you have anaemia?",
         ('Yes', 'No'))
@@ -104,13 +113,13 @@ def show_predict_page():
 
     time = st.text_input('time')
 
-    X = np.array([[age, anaemia, creatinine_phosphokinase, diabetes, ejection_fraction,
-                   high_blood_pressure, platelets, serum_creatinine, serum_sodium, sex, smoking, time]])
+    # X = np.array([[age, anaemia, creatinine_phosphokinase, diabetes, ejection_fraction,
+    #              high_blood_pressure, platelets, serum_creatinine, serum_sodium, sex, smoking, time]])
 
-    print(X)
+    # print(X)
 
-    health = ml.predict(X)
+    # health = ml.predict(X)
 
-    st.subheader(health)
+    # st.subheader(health)
 
     # st.subheader(f"ayo you ")

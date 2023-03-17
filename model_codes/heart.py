@@ -11,7 +11,8 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score
 
-df = pd.read_csv(r"C:\Users\Madhumitha\Desktop\Majorrrrrr\Health-App\data\heart.csv")
+df = pd.read_csv(
+    r"E:\External Projects\MajorProject\data\heart.csv")
 
 categorical_val = []
 continous_val = []
@@ -22,13 +23,14 @@ for column in df.columns:
         continous_val.append(column)
 
 categorical_val.remove('target')
-dataset = pd.get_dummies(df, columns = categorical_val)
+dataset = pd.get_dummies(df, columns=categorical_val)
 
-cols = ['cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach', 'exang']       
+cols = ['cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach', 'exang']
 X = df[cols]
 y = dataset.target
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.3, random_state=42)
 
 print('Shape training set: X:{}, y:{}'.format(X_train.shape, y_train.shape))
 print('Shape test set: X:{}, y:{}'.format(X_test.shape, y_test.shape))
@@ -44,5 +46,5 @@ print("---------------------")
 print(clf_report)
 print("_____________________")
 
-joblib.dump(model,r"C:\Users\Madhumitha\Desktop\Majorrrrrr\Health-App\Heart_API\heart_model.pkl")
-
+joblib.dump(
+    model, r"E:\External Projects\MajorProject\Heart_API\heart_model.pkl")

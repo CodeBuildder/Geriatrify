@@ -66,11 +66,7 @@
           </div>
           <div class="col-lg-6 col-md-6 col-12">
             <form action="{{ url_for('predict')}}" method="post">
-              <div class="form-group">
-                <!-- TODO : Year to accept only year date picker -->
-                <label for="Pregnancies">No. of Pregnencies</label>
-                <input class="form-control" type="number" id="Pregnancies" name="Pregnancies" required="required" placeholder="No. of Pregnencies">
-              </div>
+              
               <div class="form-group">
                 <label for="Glucose">Glucose Level</label>
                 <input class="form-control" type="number" step="any" id="Glucose" name="Present_Price" required="required" placeholder="Glucose Level">
@@ -85,7 +81,7 @@
               </div>
               <div class="form-group">
                 <label for="DiabetesPedigreeFunction">Diabetes Pedigree Function</label>
-                <input class="form-control" type="number" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction" required="required" placeholder="Diabetes Pedigree Function">
+                <input class="form-control" type="text" id="DiabetesPedigreeFunction" name="DiabetesPedigreeFunction" required="required" placeholder="Diabetes Pedigree Function">
               </div>
               <div class="form-group">
                 <label for="Age">Age</label>
