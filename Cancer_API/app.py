@@ -33,9 +33,11 @@ def predict():
 
     if(int(result) == 1):
         prediction = "Sorry you chances of getting the disease. Please consult the doctor immediately"
+        return(render_template("recommend.html", prediction_text=prediction))
+
     else:
         prediction = "No need to fear. You have no dangerous symptoms of the disease"
-    return(render_template("result.html", prediction_text=prediction))
+        return(render_template("result.html", prediction_text=prediction))
 
 
 if __name__ == "__main__":

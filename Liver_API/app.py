@@ -16,7 +16,7 @@ def ValuePredictor(to_predict_list, size):
     to_predict = np.array(to_predict_list).reshape(1, size)
     if(size == 7):
         loaded_model = joblib.load(
-            r'C:\Users\Mahesh Sharma\Desktop\HealthApp\Indivisual_Deployment\Liver_API\liver_model.pkl')
+            r'E:\External Projects\MajorProject\Liver_API\liver_model.pkl')
         result = loaded_model.predict(to_predict)
     return result[0]
 
@@ -33,9 +33,11 @@ def predict():
 
     if(int(result) == 1):
         prediction = "Sorry you chances of getting the disease. Please consult the doctor immediately"
+        return(render_template("recommend.html", prediction_text=prediction))
+
     else:
         prediction = "No need to fear. You have no dangerous symptoms of the disease"
-    return(render_template("result.html", prediction_text=prediction))
+        return(render_template("result.html", prediction_text=prediction))
 
 
 if __name__ == "__main__":

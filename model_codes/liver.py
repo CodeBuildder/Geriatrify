@@ -6,7 +6,7 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import joblib
 
 patients = pd.read_csv(
-    r"C:\Users\Madhumitha\Desktop\Majorrrrrr\Health-App\data\indian_liver_patient.csv")
+    r"E:\External Projects\MajorProject\data\indian_liver_patient.csv")
 patients['Gender'] = patients['Gender'].apply(
     lambda x: 1 if x == 'Male' else 0)
 patients = patients.fillna(0.94)
@@ -33,4 +33,4 @@ print("---------------------")
 print(clf_report)
 print("_____________________")
 joblib.dump(
-    model, r"C:\Users\Madhumitha\Desktop\Majorrrrrr\Health-App\Liver_API\liver_model.pkl")
+    model, r"E:\External Projects\MajorProject\Liver_API\liver_model.pkl")
