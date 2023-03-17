@@ -24,7 +24,7 @@ def predict():
 
     print('final', final_features)
 
-    #prediction = model.predict(feature_list)
+    prediction = model.predict(feature_list)
 
     # print(prediction)
 
