@@ -32,7 +32,7 @@ def predict():
             result = ValuePredictor(to_predict_list, 5)
 
     if(int(result) == 1):
-        prediction = "Sorry you chances of getting the disease. Please consult the doctor immediately"
+        prediction = "Sorry you have chances of getting the disease. Please consult the doctor immediately"
         return(render_template("recommend.html", prediction_text=prediction))
 
     else:
