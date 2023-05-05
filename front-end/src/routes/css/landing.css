@@ -1,0 +1,73 @@
+.parent {
+  border: 1px solid black;
+  margin: 1rem;
+  padding: 2rem 2rem;
+  text-align: center;
+}
+
+.child {
+  display: inline-block;
+  text-decoration: none;
+  padding: 4rem;
+  color: lightblue;
+  vertical-align: middle;
+  animation: pulsate 1.5s infinite alternate;
+  border: 2px solid #fff;
+  border-radius: 2rem;
+  padding: 3rem;
+  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem darkcyan,
+    0 0 0.8rem darkcyan, 0 0 2.8rem darkcyan, inset 0 0 1.3rem darkcyan;
+  margin: 2rem;
+}
+
+.wrapper {
+  /* display: grid; */
+  display: inline-block;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+  grid-auto-flow: dense;
+}
+
+.wrapper div.landscape {
+  grid-column-end: span 2;
+}
+
+.doctor-container {
+  border: 2px solid #fff;
+  border-radius: 2rem;
+  padding: 3rem;
+  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #bc13fe,
+    0 0 0.8rem #bc13fe, 0 0 2.8rem #bc13fe, inset 0 0 1.3rem #bc13fe;
+  margin: 2rem;
+}
+
+.neonText {
+  color: #fff;
+}
+
+body {
+  font-size: 18px;
+  font-family: "Sacramento", sans-serif;
+  background-color: #010a01;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1,
+h2 {
+  text-align: center;
+  font-weight: 400;
+}
+
+@keyframes pulsate {
+  100% {
+    box-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 12px #fff, 0 0 15px darkcyan,
+      0 0 18px darkcyan;
+  }
+
+  0% {
+    box-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 10px darkcyan,
+      0 0 15px darkcyan, 0 0 18px darkcyan;
+  }
+}
