@@ -16,7 +16,7 @@ def ValuePredictor(to_predict_list, size):
     to_predict = np.array(to_predict_list).reshape(1, size)
     if(size == 7):
         loaded_model = joblib.load(
-            r'E:\External Projects\MajorProject\Heart_API\heart_model.pkl')
+            r'E:\External Projects\MajorProject\model_api\Heart_API\heart_model.pkl')
         result = loaded_model.predict(to_predict)
     return result[0]
 
@@ -32,11 +32,11 @@ def predict():
             result = ValuePredictor(to_predict_list, 7)
 
     if(int(result) == 1):
-        prediction = "Sorry you chances of getting the disease. Please consult the doctor immediately"
+        prediction = "I understand that this news is difficult to hear, but you have been diagnosed positive. Kindly consult your doctor to know further about the details. Quick remedy can be taken from the recommendations below!"
         return(render_template("recommend.html", prediction_text=prediction))
 
     else:
-        prediction = "No need to fear. You have no dangerous symptoms of the disease"
+        prediction = "Congratulations on your recovery! Please continue to take care of yourself to maintain your health."
         return(render_template("result.html", prediction_text=prediction))
 
 
